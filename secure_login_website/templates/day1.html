@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block content %}
+<!--Displays title-->
+    {% if title %}
+        <h1>{{ workout.workout }}: {{ title }}</h1>
+    {% else %}
+        <h1>Workout</h1>
+    {% endif %}
+    <!--Displays image for Chest day-->
+    <p><img src="/static/images/chest_day.jpg" alt="Chest, Triceps, & Shoulders"></img></p>
+    
+    <!--Displays additional information for Chest day-->
+    <h2>Equipment Needed: {{ workout.equipment }}</h2>
+    <h2>Exercise Time: {{ workout.time }}</h2>
+    
+    <!--Lists exercises in a table-->
+	<table>
+	<tr>
+		<th>Exercise</th>
+		<th># of Sets</th>
+		<th># of Reps</th>
+		<th>How-To</th>
+	</tr>
+
+	<tr>
+		<td>Dumbbell Bench Press</td>
+		<td>3</td>
+		<td>8-10</td>
+		<td><a href="https://www.youtube.com/watch?v=VmB1G1K7v94">Video</a></td>
+	</tr>
+
+	<tr>
+		<td>Incline Dumbbell Flyes</td>
+		<td>3</td>
+		<td>10-12</td>
+		<td><a href="https://www.youtube.com/watch?v=bDaIL_zKbGs">Video</a></td>
+	</tr>
+
+	<tr>
+		<td>Pushups</td>
+		<td>3</td>
+		<td>Max Out</td>
+		<td><a href="https://www.youtube.com/watch?v=i9sTjhN4Z3M">Video</a></td>
+	</tr>
+  
+	<tr>
+		<td>Dumbbell Tricep Extensions</td>
+		<td>3</td>
+		<td>10-12</td>
+		<td><a href="https://www.youtube.com/watch?v=_gsUck-7M74">Video</a></td>
+	</tr>
+  
+	<tr>
+		<td>Dumbbell Shoulder Press</td>
+		<td>3</td>
+		<td>10-12</td>
+		<td><a href="https://www.youtube.com/watch?v=B-aVuyhvLHU">Video</a></td>
+	</tr>
+	</table>
+
+{% endblock content %}

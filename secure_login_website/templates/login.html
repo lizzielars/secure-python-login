@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<!--Defines stylesheet-->
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"></link>
+
+    <header>
+      <div class="container">
+      <!--Displays title-->
+	{% if title %}
+        <h1 class="logo">Member Login: {{ title }}</h1>
+    {% else %}
+        <h1 class="logo">Member Login</h1>
+    {% endif %}
+    <!--Displays menu-->
+      </div>
+    </header>
+    
+    <body>
+	{% with messages = get_flashed_messages(with_categories=true) %}
+      	{% if messages %}
+      		{% for category, message in messages %}
+      		<p>
+      			{{ message }}
+      		</p>
+      		{% endfor %}
+      	{% endif %}
+     {% endwith %}
+     
+    	<h1>Log In</h1>
+    	
+    	<form method="POST" action="">
+    	{{ form.hidden_tag() }}
+    			
+    			<div class="form">
+    			{{ form.email_address.label() }}
+    			{%if form.email_address.errors %}
+    			
+					{{ form.email_address() }}
+					
+					<p>{% for error in form.email_address.errors %}
+					<span>{{ error }}</span>
+					</p>
+					{% endfor %}
+				{% else %}
+					{{ form.email_address() }}
+    			{% endif %}
+    			</div>
+    			
+    			<div class="form">
+    			{{ form.user_pass.label() }}
+    			{%if form.user_pass.errors %}
+    			
+					{{ form.user_pass() }}
+					
+					<p>{% for error in form.user_pass.errors %}
+					<span>{{ error }}</span>
+					</p>
+					{% endfor %}
+				{% else %}
+					{{ form.user_pass() }}
+    			{% endif %}
+    			</div>
+    			
+    		<div class="form">
+    			{{ form.submit() }}
+    		</div>
+    	</form>
+    	<p>
+    	Need to Create an Account? <a class="ml-2" href="{{ url_for('register') }}">Register</a></p>
+    	
+    
+    </body>
+</html>

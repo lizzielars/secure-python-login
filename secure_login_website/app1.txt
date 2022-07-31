@@ -1,0 +1,7 @@
+************* Module app
+app.py:106:22: W1309: Using an f-string that does not have any interpolated variables (f-string-without-interpolation)
+app.py:302:4: W0621: Redefining name 'current_date_time' from outer scope (line 43) (redefined-outer-name)
+
+-------------------------------------------------------------------
+Your code has been rated at 9.84/10 (previous run: 10.00/10, -0.16)
+

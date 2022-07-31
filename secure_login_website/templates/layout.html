@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<!--Defines stylesheet-->
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"></link>
+
+  <body>
+    <header>
+      <div class="container">
+      <!--Displays title-->
+	{% if title %}
+        <h1 class="logo">Workout Plan: {{ title }}</h1>
+    {% else %}
+        <h1 class="logo">Workout Plan</h1>
+    {% endif %}
+    <!--Displays menu-->
+        <nav>
+          <ul class="menu">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('day1') }}">Day 1</a></li>
+            <li><a href="{{ url_for('day2') }}">Day 2</a></li>
+            <li><a href="{{ url_for('day3') }}">Day 3</a></li>
+            <li><a href="{{ url_for('updatepass') }}">Update Password</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+	   		<li>{{datetime}}</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      	{% if messages %}
+      		{% for category, message in messages %}
+      		<p>
+      			{{ message }}
+      		</p>
+      		{% endfor %}
+      	{% endif %}
+      {% endwith %}
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

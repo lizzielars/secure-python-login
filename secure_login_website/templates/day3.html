@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
+<!--Displays title-->
+    {% if title %}
+        <h1>{{ workout.workout }}: {{ title }}</h1>
+    {% else %}
+        <h1>Workout</h1>
+    {% endif %}
+    <!--Displays image for back day-->
+    <p><img src="/static/images/back_day.jpg" alt="Back & Biceps"></img></p>
+    <!--Displays additional workout information-->
+    <h2>Equipment Needed: {{ workout.equipment }}</h2>
+    <h2>Exercise Time: {{ workout.time }}</h2>
+	
+	<!--Lists exercises in a table-->
+	<table>
+	<tr>
+		<th>Exercise</th>
+		<th># of Sets</th>
+		<th># of Reps</th>
+		<th>How-To</th>
+	</tr>
+
+	<tr>
+		<td>Wide Grip Pullups</td>
+		<td>3</td>
+		<td>Max Out</td>
+		<td><a href="https://www.youtube.com/watch?v=Hdc7Mw6BIEE">Video</a></td>
+	</tr>
+
+	<tr>
+		<td>Chin Ups</td>
+		<td>3</td>
+		<td>Max Out</td>
+		<td><a href="https://www.youtube.com/watch?v=brhRXlOhsAM">Video</a></td>
+	</tr>
+
+	<tr>
+		<td>Bent Over Dumbbell Rows</td>
+		<td>3</td>
+		<td>8-10</td>
+		<td><a href="https://www.youtube.com/watch?v=knB5Q4FN4ck">Video</a></td>
+	</tr>
+  
+	<tr>
+		<td>Dumbbell Curls</td>
+		<td>3</td>
+		<td>10-12</td>
+		<td><a href="https://www.youtube.com/watch?v=av7-8igSXTs">Video</a></td>
+	</tr>
+  
+	</table>
+{% endblock content %}

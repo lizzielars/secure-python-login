@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<!--Defines stylesheet-->
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"></link>
+
+    <header>
+      <div class="container">
+      <!--Displays title-->
+	{% if title %}
+        <h1 class="logo">Member Registration: {{ title }}</h1>
+    {% else %}
+        <h1 class="logo">Member Registration</h1>
+    {% endif %}
+    <!--Displays menu-->
+      </div>
+    </header>
+    
+    <body>
+	{% with messages = get_flashed_messages(with_categories=true) %}
+      	{% if messages %}
+      		{% for category, message in messages %}
+      		<p>
+      			{{ message }}
+      		</p>
+      		{% endfor %}
+      	{% endif %}
+     {% endwith %}
+     
+    	<h1>Register</h1>
+    	<p>Please fill out the information below to access your workouts.</p>
+    	
+    	<form method="POST" action="">
+    	{{ form.hidden_tag() }}
+ 
+    			<div class="form">
+    			{{ form.first_name.label() }}
+    			
+    			{%if form.first_name.errors %}
+    			
+					{{ form.first_name() }}
+					
+					<p>{% for error in form.first_name.errors %}
+					<span>{{ error }}</span>
+					</p>
+					{% endfor %}
+				{% else %}
+					{{ form.first_name() }}
+    			{% endif %}
+    			
+    			</div>
+    			
+    			
+    			<div class="form">
+    			{{ form.last_name.label() }}
+    			{%if form.last_name.errors %}
+    			
+					{{ form.last_name() }}
+					
+					<p>{% for error in form.last_name.errors %}
+					<span>{{ error }}</span>
+					</p>
+					{% endfor %}
+				{% else %}
+					{{ form.last_name() }}
+    			{% endif %}
+    			</div>
+    			
+    			<div class="form">
+    			{{ form.email_address.label() }}
+    			{%if form.email_address.errors %}
+    			
+					{{ form.email_address() }}
+					
+					<p>{% for error in form.email_address.errors %}
+					<span>{{ error }}</span>
+					</p>
+					{% endfor %}
+				{% else %}
+					{{ form.email_address() }}
+    			{% endif %}
+    			</div>
+    			
+    			<div class="form">
+    			{{ form.user_pass.label() }}
+    			{%if form.user_pass.errors %}
+    			
+					{{ form.user_pass() }}
+					
+					<p>{% for error in form.user_pass.errors %}
+					<span>{{ error }}</span>
+					</p>
+					{% endfor %}
+				{% else %}
+					{{ form.user_pass() }}
+    			{% endif %}
+    			</div>
+    			
+    			<div class="form">
+    			{{ form.confirm_user_pass.label(class="form-control-label") }}
+    			{%if form.confirm_user_pass.errors %}
+    			
+					{{ form.confirm_user_pass(class="form-control form-control-lg is_invalid") }}
+					
+					<p>{% for error in form.confirm_user_pass.errors %}
+					<span>{{ error }}</span>
+					</p>
+					{% endfor %}
+				{% else %}
+					{{ form.confirm_user_pass(class="form-control form-control-lg") }}
+    			{% endif %}
+    			</div>
+    		<div class="form">
+    			{{ form.submit(class="btn-outline-info") }}
+    		</div>
+    	</form>
+    	<p>
+    	Already Have An Account? <a class="ml-2" href="{{ url_for('login') }}">Sign In</a></p>
+    	
+    
+    </body>
+</html>

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!--Establishes what website is for-->
+    <h1>Overview</h1>
+        <!--Displays image for Chest day-->
+    <p><img src="/static/images/home_page.jpg" alt="3 Day Workout"></img></p>
+    <p> This website provides three weight-training workouts that one can perform.</p>
+    <p> Listed below are the workouts included as well as the equipment you will need.</p>
+    <p>Good luck and enjoy!</p>
+
+    
+<!--Lists workouts-->
+    <h3> Workouts Included:</h3>
+    
+    {%for workout in workouts%}
+    <ul>
+	<li>{{workout.workout}}</li>
+	</ul>
+	{% endfor %}
+	<h3>Equipment Needed:</h3>
+	{%for workout in workouts%}
+	<ul>
+	<li>{{workout.equipment}}</li></ul>
+	{% endfor %}
+
+
+{% endblock content %}

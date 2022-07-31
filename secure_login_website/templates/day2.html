@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block content %}
+<!--Displays title-->
+    {% if title %}
+        <h1>{{ workout.workout }}: {{ title }}</h1>
+    {% else %}
+        <h1>Workout</h1>
+    {% endif %}
+    <!--Displays image for leg day-->
+    <p><img src="/static/images/leg_day.jpg" alt="Legs"></img></p>
+    <!--Displays additional workout information-->
+    <h2>Equipment Needed: {{ workout.equipment }}</h2>
+    <h2>Exercise Time: {{ workout.time }}</h2>
+	
+	   <!--Lists exercises in a table-->
+	<table>
+	<tr>
+		<th>Exercise</th>
+		<th># of Sets</th>
+		<th># of Reps</th>
+		<th>How-To</th>
+	</tr>
+
+	<tr>
+		<td>Barbell Squats</td>
+		<td>3</td>
+		<td>8-10</td>
+		<td><a href="https://www.youtube.com/watch?v=eFYv8Skf66g">Video</a></td>
+	</tr>
+
+	<tr>
+		<td>Dumbbell Lunges</td>
+		<td>3</td>
+		<td>10-12</td>
+		<td><a href="https://www.youtube.com/watch?v=auyE2hZGB9k">Video</a></td>
+	</tr>
+
+	<tr>
+		<td>Romanian Deadlifts</td>
+		<td>3</td>
+		<td>8-10</td>
+		<td><a href="https://www.youtube.com/watch?v=bT5OOBgY4bc">Video</a></td>
+	</tr>
+  
+	<tr>
+		<td>Dumbbell Leg Extensions</td>
+		<td>3</td>
+		<td>10-12</td>
+		<td><a href="https://www.youtube.com/watch?v=cA-kjMRSQ6c">Video</a></td>
+	</tr>
+  
+	<tr>
+		<td>Lying Dumbbell Leg Curls</td>
+		<td>3</td>
+		<td>10-12</td>
+		<td><a href="https://www.youtube.com/watch?v=ZHlBSI6JPsA">Video</a></td>
+	</tr>
+	</table>
+{% endblock content %}
