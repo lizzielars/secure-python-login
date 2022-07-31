@@ -14,4 +14,4 @@ button and resets their password, their entered password is once again validated
 Part II: Decrypt three messages.
 
 To deploy the website on your local server, download the attached repository, make sure python3 is installed on your computer, and then run the 
-command Run command 'FLASK_ENV=development FLASK_APP=app.py python3 -m flask run'
+command Run command `FLASK_ENV=development FLASK_APP=app.py python3 -m flask run`
